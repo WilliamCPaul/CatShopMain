@@ -22,7 +22,14 @@ import middle.MiddleFactory;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.File;
+import java.io.IOException;
 
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 
 /**
  * Starts all the clients  as a single application.
@@ -62,6 +69,24 @@ class Main
     if ( many ) 
       startDisplayGUI_MVC( mlf );
     startCollectionGUI_MVC( mlf );
+    AudioInputStream audioInputStream;
+	try {
+		audioInputStream = AudioSystem.getAudioInputStream(new File("storeJingle.wav"));
+	    Clip clip;
+		try {
+			clip = AudioSystem.getClip();
+		    clip.loop(clip.LOOP_CONTINUOUSLY);
+		    clip.open(audioInputStream);
+		    clip.start();
+		} catch (LineUnavailableException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	} catch (UnsupportedAudioFileException e) {
+		e.printStackTrace();
+	} catch (IOException e) {
+		e.printStackTrace();
+	}
   }
   
   public void startCustomerGUI_MVC(MiddleFactory mlf )
