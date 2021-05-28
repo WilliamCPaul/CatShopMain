@@ -38,12 +38,12 @@ public class DisplayView extends Canvas implements Observer
   public DisplayView(  RootPaneContainer rpc, MiddleFactory mf, int x, int y )
   {
     Container cp         = rpc.getContentPane();    // Content Pane
+    cp.setBackground(Color.BLUE);
     Container rootWindow = (Container) rpc;         // Root Window
     cp.setLayout( new BorderLayout() );             // Border N E S W CENTER 
     rootWindow.setSize( W, H );                     // Size of Window  
     rootWindow.setLocation( x, y );                 // Position on screen
     rootWindow.add( this, BorderLayout.CENTER );    //  Add to rootwindow
-    
     rootWindow.setVisible( true );                  // Make visible
   }
   

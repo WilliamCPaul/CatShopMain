@@ -56,7 +56,7 @@ public class BackDoorView implements Observer
     cp.setLayout(null);                             // No layout manager
     rootWindow.setSize( W, H );                     // Size of Window
     rootWindow.setLocation( x, y );
-    
+    cp.setBackground(Color.BLUE);
     Font f = new Font("Monospaced",Font.PLAIN,12);  // Font f is
 
     theBtQuery.setBounds( 16, 25+60*0, 80, 40 );    // Buy button 

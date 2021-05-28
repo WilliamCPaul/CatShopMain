@@ -48,11 +48,12 @@ public class PickView implements Observer
       System.out.println("Exception: " + e.getMessage() );
     }
     Container cp         = rpc.getContentPane();    // Content Pane
+    cp.setBackground(Color.BLUE);
     Container rootWindow = (Container) rpc;         // Root Window
     cp.setLayout(null);                             // No layout manager
     rootWindow.setSize( W, H );                     // Size of Window
     rootWindow.setLocation( x, y );
-    
+    cp.setBackground(Color.RED);
     Font f = new Font("Monospaced",Font.PLAIN,12);  // Font f is
 
     theBtPicked.setBounds( 16, 25+60*0, 80, 40 );   // Check Button
