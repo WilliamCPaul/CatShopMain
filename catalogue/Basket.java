@@ -60,7 +60,10 @@ public class Basket extends ArrayList<Product> implements Serializable
   {                              
     return super.add( pr );     // Call add in ArrayList
   }
-
+  
+  public boolean remove(Product pr) {
+	  return super.remove(pr);
+  }
   /**
    * Returns a description of the products in the basket suitable for printing.
    * @return a string description of the basket products
@@ -94,4 +97,13 @@ public class Basket extends ArrayList<Product> implements Serializable
     }
     return sb.toString();
   }
+
+public boolean hasProduct(Product pr) {
+	for(int i=0;i<this.size();i++) {
+		if(this.get(i).getProductNum().equals(pr.getProductNum())) {
+			return true;
+		}
+	}
+	return false;
+}
 }
